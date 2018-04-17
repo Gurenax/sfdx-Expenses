@@ -1,4 +1,5 @@
 <aura:component>
+  <aura:registerEvent name="createExpense" type="c:ExpenseUpdated"/>
   <aura:attribute name="newExpense" type="Expense__c"
   default="{ 'sobjectType': 'Expense__c',
               'Name': '',
@@ -44,6 +45,7 @@
                         label="Expense Date"
                         name="expensedate"
                         value="{!v.newExpense.Date__c}"
+                        required="true"
         />
         <lightning:input type="checkbox"
                         aura:id="expenseform"

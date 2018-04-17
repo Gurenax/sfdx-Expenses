@@ -2,6 +2,12 @@
                 controller="ExpensesController">
 
   <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+  <!-- createExpense Event Handler -->
+  <aura:handler name="createExpense" event="c:ExpenseUpdated"
+                  action="{!c.handleCreateExpense}"/>
+  <!-- updateExpense Event Handler -->
+  <aura:handler name="updateExpense" event="c:ExpenseUpdated"
+                  action="{!c.handleUpdateExpense}"/>
   <aura:attribute name="expenses" type="Expense__c[]"/>
 
   <!-- PAGE HEADER -->
