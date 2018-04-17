@@ -19,21 +19,23 @@
   </lightning:layout>
   <!-- / PAGE HEADER -->
 
-  <!-- EXPENSE FORM -->
-  <lightning:layout>
-    <lightning:layoutItem padding="around-small" size="6">
-      <!-- ExpensesForm component -->
-      <c:ExpensesForm />
-    </lightning:layoutItem>
-  </lightning:layout>
-  <!-- / EXPENSE FORM -->
+  <div>
+      <!-- EXPENSE FORM -->
+      <lightning:layout>
+        <lightning:layoutItem padding="around-small" size="6">
+          <!-- ExpensesForm component -->
+          <c:ExpensesForm />
+        </lightning:layoutItem>
+      </lightning:layout>
+      <!-- / EXPENSE FORM -->
 
-  <!-- EXPENSES LIST -->
-  <lightning:layoutItem padding="around-small" size="6">
-    <!-- ExpenseList component -->
-    <c:ExpensesList expenses="{!v.expenses}" />
-  </lightning:layoutItem>
-  <!-- / EXPENSES LIST -->
+      <!-- EXPENSES LIST -->
+      <lightning:layoutItem padding="around-small" size="6">
+        <!-- ExpenseList component -->
+        <c:ExpensesList expenses="{!v.expenses}" />
+      </lightning:layoutItem>
+      <!-- / EXPENSES LIST -->
+  </div>
 
   <!-- FOOTER -->
   <!-- / FOOTER -->
