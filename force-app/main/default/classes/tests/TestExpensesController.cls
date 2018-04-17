@@ -91,6 +91,10 @@ public class TestExpensesController {
       'Date__c', 'Reimbursed__c'
     };
 
+    // Sort lists
+    expenses.sort();
+    result.sort();
+    
     // Assert each field defined for every record saved
     for(String field : fieldsToCheck) {
       for(Integer i=0; i<expenses.size(); i++) {
