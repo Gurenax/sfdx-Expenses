@@ -57,7 +57,8 @@ public class TestExpensesController {
                                           Reimbursed__c=false);
     // Perform test
     Test.startTest();
-    Expense__c result = ExpensesController.saveExpense(expense);
+    ExpensesController.saveExpense(expense);
+    Expense__c[] result = ExpensesController.getExpenses();
     Test.stopTest();
 
     // Fields to be Asserted
@@ -68,7 +69,7 @@ public class TestExpensesController {
 
     // Assert each field defined
     for(String field : fieldsToCheck) {
-      System.assertEquals(expense.get(field), result.get(field));
+      System.assertEquals(expense.get(field), result[0].get(field));
     }
   }
 
@@ -78,11 +79,10 @@ public class TestExpensesController {
 
     // Perform test
     Test.startTest();
-    Expense__c[] results = new List<Expense__c>();
     for(Expense__c expense : expenses) {
-      Expense__c result = ExpensesController.saveExpense(expense);
-      results.add(result);
+      ExpensesController.saveExpense(expense);
     }
+    Expense__c[] result = ExpensesController.getExpenses();
     Test.stopTest();
 
     // Fields to be Asserted
@@ -94,7 +94,7 @@ public class TestExpensesController {
     // Assert each field defined for every record saved
     for(String field : fieldsToCheck) {
       for(Integer i=0; i<expenses.size(); i++) {
-        System.assertEquals(expenses[i].get(field), results[i].get(field));
+        System.assertEquals(expenses[i].get(field), result[i].get(field));
       }
     }
   }
