@@ -1,0 +1,23 @@
+<aura:component>
+  <aura:attribute name="expense" type="Expense__c" />
+  <!-- Id, Name, Amount__c, Client__c, Date__c, Reimbursed__c, CreatedDate -->
+  <lightning:card title="{!v.item.Name}">
+    <p class="slds-text-headin_small slds-p-horizontal_small">
+      Amount:
+      <lightning:formattedNumber value="{!v.expense.Amount__c}"
+                                style="currency" />
+    </p>
+    <p class="slds-text-headin_small slds-p-horizontal_small">
+      Client: {!v.expense.Client__c}
+    </p>
+    <p class="slds-text-headin_small slds-p-horizontal_small">
+      Date: {!v.expense.Date__c}
+    </p>
+    <p class="slds-text-headin_small slds-p-horizontal_small">
+      <lightning:input type="toggle"
+                      label="Reimbursed"
+                      name="Reimbursed"
+                      checked="{!v.expense.Reimbursed__c}" />
+    </p>
+  </lightning:card>
+</aura:component>
