@@ -17,7 +17,6 @@ public with sharing class ExpensesController {
     for(String field : fieldsToCheck) {
       if( !fieldDescribeTokens.get(field).getDescribe().isAccessible()) {
         throw new System.NoAccessException();
-        return null;
       }
     }
 
@@ -35,8 +34,8 @@ public with sharing class ExpensesController {
 
     // Check to make sure all fields are accessible to this user
     String[] fieldsToCheck = new String[] {
-      'Id', 'Name', 'Amount__c', 'Client__c',
-      'Date__c', 'Reimbursed__c', 'CreatedDate'
+      'Name', 'Amount__c', 'Client__c',
+      'Date__c', 'Reimbursed__c'
     };
 
     // Get field names
@@ -47,11 +46,10 @@ public with sharing class ExpensesController {
     for(String field : fieldsToCheck) {
       if( !fieldDescribeTokens.get(field).getDescribe().isUpdateable()) {
         throw new System.NoAccessException();
-        return null;
       }
     }
 
-    // Perform isUpdatable() checking first, then
+    // Save expense
     upsert expense;
     return expense;
   }
