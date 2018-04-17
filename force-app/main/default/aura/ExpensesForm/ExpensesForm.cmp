@@ -52,7 +52,7 @@
                         checked="{!v.newExpense.Reimbursed__c}"
         />
         <lightning:button label="Create Expense"
-                        class="slds-m-top--medium"
+                        class="slds-m-top_medium"
                         variant="brand"
                         onclick="{!c.clickCreate}" />
       </form>
